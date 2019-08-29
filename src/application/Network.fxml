@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import application.GameField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml">
+	<top>
+		<HBox spacing="25" alignment="CENTER">
+			<padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+			<Label>Multiplayer Connection</Label>
+		</HBox>
+	</top>
+	<center>
+		<GridPane vgap="10" hgap="10" prefWidth="1200" alignment="center">
+			<padding>
+				<Insets top="25" right="25" bottom="10" left="25"/>
+			</padding>
+			
+			<Label text="Port" GridPane.columnIndex="0" GridPane.rowIndex="0">
+				<tooltip><Tooltip text="Enter a port on which you want to host a game."/></tooltip>
+			</Label>
+			<TextField fx:id="hostPort" text="1337" GridPane.columnIndex="1" GridPane.rowIndex="0"></TextField>
+			
+			<Button fx:id="hostButton" onAction="#networkHost" text="Host" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+			
+			
+			<Label text="IP Address" GridPane.columnIndex="0" GridPane.rowIndex="3">
+				<tooltip><Tooltip text="Enter the IP address of the player who hosts a game for you."/></tooltip>
+			</Label>
+			<TextField fx:id="connectIPAddress" text="localhost" GridPane.columnIndex="1" GridPane.rowIndex="3"></TextField>
+				
+			<Label text="Port" GridPane.columnIndex="0" GridPane.rowIndex="4">
+				<tooltip><Tooltip text="Enter the port of the player who hosts a game for you."/></tooltip>
+			</Label>
+			<TextField fx:id="connectPort" text="1337" GridPane.columnIndex="1" GridPane.rowIndex="4"></TextField>
+				
+			<Button fx:id="connectButton" onAction="#networkConnect" text="Connect" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+			
+		</GridPane>
+	</center>
+	<bottom>
+		<HBox spacing="25" alignment="BOTTOM_RIGHT">
+			<padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+			<Button text="Cancel" onAction="#networkCancel"/>
+		</HBox>
+	</bottom>
+</BorderPane>

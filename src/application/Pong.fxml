@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import application.GameField?>
+<?import javafx.scene.layout.GridPane?>
+
+<VBox fx:controller="application.Controller" xmlns:fx="http://javafx.com/fxml" spacing="25" alignment="TOP_CENTER">
+	<MenuBar fx:id="menuBar">
+		<menus>
+			<Menu text="Game">
+				<items>
+					<Menu text="New Game">
+						<items>
+							<MenuItem text="Singleplayer" onAction="#menuSingleplayer"/>
+							<MenuItem text="AI Match" onAction="#menuAIMatch"/>
+							<Menu text="Multiplayer">
+								<items>
+									<MenuItem text="Local" onAction="#menuMultiplayerLocal"/>
+									<MenuItem text="Network" onAction="#menuMultiplayerNetwork"/>
+									<SeparatorMenuItem  />
+									<MenuItem text="Disconnect" onAction="#menuMultiplayerNetwork" disable="true"/>
+								</items>
+							</Menu>
+						</items>
+					</Menu>
+				</items>
+			</Menu>
+			<Menu text="Extras">
+				<MenuItem text="Settings"/>
+			</Menu>
+		</menus>
+	</MenuBar>
+	<Text VBox.vgrow="ALWAYS">Pong</Text>
+	<GameField fx:id="gameField" width="1024" height="576" VBox.vgrow="ALWAYS"/>
+	<GridPane vgap="10" hgap="10" prefWidth="1200" alignment="center">
+		<padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+		<Text fx:id="tScoreLeft" GridPane.columnIndex="0" GridPane.rowIndex="0">0</Text>
+		<Text fx:id="tScoreRight" GridPane.columnIndex="3" GridPane.rowIndex="0">0</Text>
+	</GridPane>
+</VBox>
